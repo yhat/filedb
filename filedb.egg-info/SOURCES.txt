@@ -1,0 +1,9 @@
+setup.py
+bin/filedb
+filedb/__init__.py
+filedb/filedb.py
+filedb.egg-info/PKG-INFO
+filedb.egg-info/SOURCES.txt
+filedb.egg-info/dependency_links.txt
+filedb.egg-info/requires.txt
+filedb.egg-info/top_level.txt

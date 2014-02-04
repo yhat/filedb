@@ -1,0 +1,42 @@
+#!/usr/local/opt/python/bin/python2.7
+"""filedb
+
+Usage:
+  filedb <mountpoint> <host> <port> <dbname> <collection> <username> <password>
+  filedb <mountpoint> <db_uri> <collection>
+  filedb (-h | --help)
+  filedb --version
+
+Options:
+  -h --help     Show this screen.
+  --version     Show version.
+
+Help:
+    Create a file that pretends to be a database. If you try to open the file, 
+    it will JSONify the collection and dump it back to you.
+
+    Files are simpler than databases and don't break. The database operations
+    we need to perform aren't complicated and don't require high performance. By
+    using files there isn't a database that can fail. There's the added benefit
+    that if customers want to use different types of databases for distributed
+    systems, we can plug into any of them using a `filedb` (we just have to make
+    something that dumps out JSON.
+"""
+from pymongo import Connection
+from pymongo.uri_parser import parse_uri
+from docopt import docopt
+from filedb import FileDB
+from fuse import FUSE
+
+arguments = docopt(__doc__, version='0.1dev')
+if "<db_uri>" in arguments:
+    conn = Connection(arguments["<db_uri>"])
+    uri_args= parse_uri(arguments["<db_uri>"])
+    db = conn[uri_args['database']]
+else:
+    conn = Connection(host=arguments['<host>'], port=int(arguments['<port>']))
+    db = conn[arguments['<dbname>']]
+    db.authenticate(arguments['<username>'], arguments['<password>'])
+fuse = FUSE(FileDB(db, arguments['<collection>']), arguments['<mountpoint>'],
+        foreground=True, ro=True)
+

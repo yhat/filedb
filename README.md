@@ -31,10 +31,10 @@ $ mongod
 ```bash
 $ mongo
 > use test
-> db.people.insert({"name": "greg"})
-> db.people.insert({"name": "phil"})
-> db.people.insert({"name": "bob"})
-> db.people.insert({"name": "samantha"})
+> db.people.insert({"username": "greg"})
+> db.people.insert({"username": "phil"})
+> db.people.insert({"username": "bob"})
+> db.people.insert({"username": "samantha"})
 ```
 
 #### Install filedb

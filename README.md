@@ -53,7 +53,8 @@ $ cat /tmp/tutorial/mnt/db
 ```
 
 ## Running as a service
+Upstart job.
 ```bash
-cp -R overlay/* /
-sudo start filedb
+$ sudo cp -R overlay/* /
+$ sudo start filedb
 ```

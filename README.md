@@ -59,6 +59,11 @@ $ cat /tmp/tutorial/mnt/db
 ## Running as a service
 Upstart job.
 ```bash
+# install the job
 $ sudo cp -R overlay/* /
+# or
+$ wget https://raw2.github.com/yhat/filedb/master/overlay/etc/init/filedb.conf
+$ sudo mv filedb.conf /etc/init/filedb.conf
+# start the job
 $ sudo start filedb
 ```

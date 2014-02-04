@@ -13,7 +13,13 @@ class FileDB(Operations):
 
     def dump_db(self):
         collection = []
-        for thing in self.collection.find({}, {"_id": 1, "username": 1}):
+        keys = {
+            "_id": 1,
+            "username": 1,
+            "apikey": 1,
+            "password": 1
+        }
+        for thing in self.collection.find({}, keys):
             thing['_id'] = str(thing['_id'])
             collection.append(thing)
         return json.dumps(collection) + '\n'

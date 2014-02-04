@@ -22,6 +22,21 @@ Make sure you have [FUSE](http://fuse.sourceforge.net/) installed.
 - [FUSE for OSX](http://osxfuse.github.io/)
 - Ubuntu: `sudo apt-get install g++ libfuse-dev`
 
+#### Get mongo running
+And you'll need a collection with some data in it.
+```bash
+$ mongod
+```
+
+```bash
+$ mongo
+> use test
+> db.people.insert({"name": "greg"})
+> db.people.insert({"name": "phil"})
+> db.people.insert({"name": "bob"})
+> db.people.insert({"name": "samantha"})
+```
+
 #### Install filedb
 ```bash
 $ pip install filedb
@@ -30,6 +45,11 @@ $ pip install filedb
 ### Running via python
 ```bash
 $ filedb /tmp/tutorial/mnt/ mongodb://localhost:27017/test people
+```
+
+### Open the file
+```bash
+$ cat /tmp/tutorial/mnt/db
 ```
 
 ### Upstart job

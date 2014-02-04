@@ -42,17 +42,17 @@ $ mongo
 $ pip install filedb
 ```
 
-### Running via python
+#### Running via python
 ```bash
 $ filedb /tmp/tutorial/mnt/ mongodb://localhost:27017/test people
 ```
 
-### Open the file
+#### Open the file
 ```bash
 $ cat /tmp/tutorial/mnt/db
 ```
 
-### Upstart job
+## Running as a service
 ```bash
 cp -R overlay/* /
 sudo start filedb

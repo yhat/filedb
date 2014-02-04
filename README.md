@@ -29,7 +29,7 @@ $ pip install filedb
 
 ### Running via python
 ```bash
-$ filedb /tmp/tutorial/mnt/ localhost/test people
+$ filedb /tmp/tutorial/mnt/ mongodb://localhost:27017/test people
 ```
 
 ### Upstart job

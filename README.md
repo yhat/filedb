@@ -29,7 +29,6 @@ $ pip install filedb
 
 ### Running via python
 ```bash
-# localhost example that doesn't work
 $ filedb /tmp/tutorial/mnt/ localhost/test people
 ```
 

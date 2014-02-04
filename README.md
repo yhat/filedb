@@ -50,6 +50,10 @@ $ filedb /tmp/tutorial/mnt/ mongodb://localhost:27017/test people
 #### Open the file
 ```bash
 $ cat /tmp/tutorial/mnt/db
+[{ "_id": "52f104a7a0fb769e0cd0d1d4", "name": "greg" }
+{ "_id": "52f104a9a0fb769e0cd0d1d5", "name": "phil" }
+{ "_id": "52f104aca0fb769e0cd0d1d6", "name": "bob" }
+{ "_id": "52f104aea0fb769e0cd0d1d7", "name": "samantha" }]
 ```
 
 ## Running as a service
